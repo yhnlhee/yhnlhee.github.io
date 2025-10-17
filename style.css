@@ -142,10 +142,11 @@ body {
 }
 
 .education-list {
-  width: 900px; /* fixed, non-fluid column */
+  width: 100%;
+  max-width: 900px; /* center column but allow shrink on small screens */
   margin: 0 auto;
   display: block;
-  padding: 0;
+  padding: 0 1rem; /* small side padding for mobile gutters */
 }
 
 .edu-item {
@@ -155,6 +156,29 @@ body {
   align-items: center;
   width: 100%;
   padding: 0; /* remove internal padding so it fills container */
+}
+
+/* Mobile: stack logo above text and increase gutters */
+@media (max-width: 600px) {
+  .education-list {
+    padding: 0 1.25rem; /* slightly larger mobile padding */
+  }
+
+  .edu-item {
+    grid-template-columns: 1fr; /* stack */
+    text-align: center;
+    gap: 0.5rem;
+    padding: 1rem 0;
+  }
+
+  .edu-item-logo img {
+    width: 90px;
+    height: 90px;
+    margin: 0 auto;
+  }
+
+  .edu-degree { font-size: 1.25rem; }
+  .edu-school { font-size: 0.95rem; }
 }
 
 .edu-item-logo img {
