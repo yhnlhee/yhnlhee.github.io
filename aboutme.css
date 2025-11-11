@@ -1,0 +1,86 @@
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+body {
+  background-image: url('/images/03.jpg');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  height: 100vh;
+  margin: 0;
+  color: white;
+  display: flex;
+  flex-direction: column;
+}
+
+/* Adjustable Navbar */
+.navbar {
+  background-color: #011f36d3;
+  font-family: 'Italianno', cursive;
+  font-size: 1.5rem;
+  min-height: 70px;
+  padding: 10px 50px;
+  align-items: center;
+}
+
+.navbar-nav {
+  margin-left: auto;
+  font-family:"times new roman", serif;
+  font-size: 1rem;
+}
+
+.navbar-brand {
+  display: flex;
+  align-items: center;
+  color: white;
+  font-size: 2rem;
+  text-decoration: none;
+}
+/* Logo spacing */
+.navbar-brand img {
+  margin-right: 15px;
+}
+
+/* Bottom-aligned content */
+.content-center {
+  text-align: center;
+  margin-top: auto; /* Push to bottom */
+  margin-bottom: 40px;
+}
+
+/* Yohan Lee styling */
+.content-center h1 {
+  font-family: 'Italianno', cursive;
+  font-size: 8rem;
+  margin-top: auto;
+  padding-bottom: 0px;
+  color: yellow;
+  position: relative;
+  display: inline-block;
+}
+
+/* Decorative underline */
+.content-center h1::after {
+  content: "";
+  display: block;
+  width: 50%;
+  height: 3px;
+  background-color: white;
+  margin: 10px auto 0 auto;
+}
+
+/* Subtitle */
+.content-center p {
+  font-size: 1.2rem;
+  margin-top: 10px;
+}
+
+/* Button styling */
+.btn-learn {
+  margin-top: 20px;
+  padding: 10px 20px;
+  border-radius: 20px;
+}

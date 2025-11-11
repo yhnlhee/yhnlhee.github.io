@@ -1,0 +1,251 @@
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: 0;
+  color: white;
+  font-family: "Times New Roman", serif;
+}
+
+/* NAVBAR */
+.navbar {
+  background-color: #212d36dc;
+  font-family: 'Italianno', cursive;
+  font-size: 1.5rem;
+  min-height: 70px;
+  padding: 10px 50px;
+  align-items: center;
+}
+
+.navbar-nav {
+  margin-left: auto;
+  font-family: "Times New Roman", serif;
+  font-size: 1rem;
+}
+
+.navbar-brand img {
+  margin-right: 15px;
+}
+
+/* HERO SECTION */
+.hero-section {
+  position: relative;
+  width: 100%;
+  height: 100vh; /* full screen height */
+  overflow: hidden;
+}
+
+.hero-bg {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover; /* show full image while maintaining aspect ratio */
+  z-index: -2;
+}
+
+.overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.3);
+  z-index: -1;
+}
+
+.content-center {
+  height: 150%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+}
+
+/* YOHAN LEE STYLING */
+.content-center h1 {
+  font-family: 'Italianno', cursive;
+  font-size: 8rem;
+  margin-bottom: 5px;
+  color: yellow;
+  line-height: 1.1;
+}
+
+.content-center h1::after {
+  content: "";
+  display: block;
+  width: 50%;
+  height: 3px;
+  background-color: white;
+  margin: 10px auto 0 auto;
+}
+
+.content-center p {
+  font-size: 1.2rem;
+  margin-top: 5px;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+}
+
+/* Responsive p for mobile */
+@media (max-width: 768px) {
+  .content-center p {
+    font-size: 1rem; /* Adjust as needed for tablets and small screens */
+  }
+}
+
+@media (max-width: 480px) {
+  .content-center h1 {
+    font-size: 5rem; /* Adjust for phones */
+  }
+}
+
+/* BUTTON */
+.btn-learn {
+  margin-top: 20px;
+  padding: 10px 20px;
+  border-radius: 20px;
+  background-color: #ffffff22;
+  color: white;
+  border: 1px solid white;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.btn-learn:hover {
+  background-color: #ffffff44;
+}
+
+/* EDUCATION SECTION */
+.education-section {
+  background-color: #ffffff; /* white background to match screenshot */
+  color: #081a3a;
+  padding: 6rem 0 4rem; /* space above and below */
+}
+
+.education-title {
+  font-family: 'Times New Roman', serif;
+  font-size: 2.75rem;
+  text-align: center;
+  color: #081a3a;
+  margin-bottom: 3.5rem;
+  letter-spacing: 2px;
+}
+
+.education-list {
+  width: 100%;
+  max-width: 900px; /* center column but allow shrink on small screens */
+  margin: 0 auto;
+  display: block;
+  padding: 0 1rem; /* small side padding for mobile gutters */
+}
+
+.edu-item {
+  display: grid;
+  grid-template-columns: 120px 1fr;
+  gap: 2rem;
+  align-items: center;
+  width: 100%;
+  padding: 0; /* remove internal padding so it fills container */
+}
+
+/* Mobile: stack logo above text and increase gutters */
+@media (max-width: 600px) {
+  .education-list {
+    padding: 0 1.25rem; /* slightly larger mobile padding */
+  }
+
+  .edu-item {
+    grid-template-columns: 1fr; /* stack */
+    text-align: center;
+    gap: 0.5rem;
+    padding: 1rem 0;
+  }
+
+  .edu-item-logo img {
+    width: 90px;
+    height: 90px;
+    margin: 0 auto;
+  }
+
+  .edu-degree { font-size: 1.25rem; }
+  .edu-school { font-size: 0.95rem; }
+}
+
+.edu-item-logo img {
+  width: 110px;
+  height: 110px;
+  object-fit: contain;
+  display: block;
+}
+
+.edu-item-content {
+  color: #081a3a;
+}
+
+.edu-degree {
+  font-family: 'Times New Roman', serif;
+  font-size: 1.6rem;
+  margin: 0 0 8px 0;
+  font-weight: 400;
+}
+
+.edu-school {
+  margin: 0 0 6px 0;
+  font-size: 1rem;
+  color: #081a3a;
+}
+
+.edu-years {
+  margin: 0;
+  font-size: 0.95rem;
+  color: #081a3a;
+}
+
+/* Subtle separator between entries (optional) */
+.edu-item:not(:last-child) {
+  padding-bottom: 1rem;
+  border-bottom: 1px solid rgba(8,26,58,0.06);
+}
+
+/* Responsive: stack on small screens */
+@media (max-width: 768px) {
+  .edu-item {
+    grid-template-columns: 80px 1fr;
+    gap: 1rem;
+    text-align: left;
+  }
+
+  .edu-item-logo img {
+    width: 80px;
+    height: 80px;
+  }
+
+  .education-title {
+    font-size: 2rem;
+    margin-bottom: 2rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .edu-item {
+    grid-template-columns: 1fr;
+    text-align: center;
+  }
+
+  .edu-item-logo img {
+    margin: 0 auto 0.5rem auto;
+  }
+
+  .edu-degree { font-size: 1.25rem; }
+  .edu-school { font-size: 0.95rem; }
+}
