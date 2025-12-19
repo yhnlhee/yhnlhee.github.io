@@ -1,251 +1,84 @@
-* {
-  padding: 0;
-  margin: 0;
-  box-sizing: border-box;
-}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Rick and Morty Characters</title>
 
-html {
-  scroll-behavior: smooth;
-}
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Italianno&display=swap" rel="stylesheet">
 
-body {
-  margin: 0;
-  color: white;
-  font-family: "Times New Roman", serif;
-}
+  <!-- Bootstrap CSS -->
+  <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
 
-/* NAVBAR */
-.navbar {
-  background-color: #212d36dc;
-  font-family: 'Italianno', cursive;
-  font-size: 1.5rem;
-  min-height: 70px;
-  padding: 10px 50px;
-  align-items: center;
-}
+  <!-- Custom CSS -->
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body class="bg-dark text-white">
 
-.navbar-nav {
-  margin-left: auto;
-  font-family: "Times New Roman", serif;
-  font-size: 1rem;
-}
+  <!-- NAVBAR -->
+  <nav class="navbar navbar-expand-lg navbar-dark bg-dark px-5">
+    <a class="navbar-brand d-flex align-items-center" href="#">
+      <img src="https://upload.wikimedia.org/wikipedia/en/b/b1/Rick_and_Morty_logo.png" alt="Logo" width="50" class="mr-2">
+      Rick & Morty
+    </a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
+      <ul class="navbar-nav">
+        <li class="nav-item"><a class="nav-link" href="#">Home</a></li>
+        <li class="nav-item"><a class="nav-link" href="#">Characters</a></li>
+      </ul>
+    </div>
+  </nav>
 
-.navbar-brand img {
-  margin-right: 15px;
-}
+  <!-- HERO SECTION -->
+  <section class="position-relative text-center">
+    <img src="https://wallpaperaccess.com/full/1130190.jpg" alt="hero-bg" class="img-fluid w-100 hero-bg">
+    <div class="overlay position-absolute w-100 h-100 top-0 left-0"></div>
+    <div class="d-flex flex-column justify-content-center align-items-center hero-content position-absolute w-100 h-100">
+      <h1 class="display-1">Rick & Morty</h1>
+      <p class="lead">Explore the Multiverse</p>
+      <a href="#characters" class="btn btn-outline-light rounded-pill mt-3">See Characters</a>
+    </div>
+  </section>
 
-/* HERO SECTION */
-.hero-section {
-  position: relative;
-  width: 100%;
-  height: 100vh; /* full screen height */
-  overflow: hidden;
-}
+  <!-- CHARACTERS GRID -->
+  <section id="characters" class="container py-5">
+    <div class="row" id="characters-container">
+      <!-- Character cards injected here -->
+    </div>
+  </section>
 
-.hero-bg {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  object-fit: cover; /* show full image while maintaining aspect ratio */
-  z-index: -2;
-}
+  <!-- Bootstrap JS & Dependencies -->
+  <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.2/dist/js/bootstrap.bundle.min.js"></script>
 
-.overlay {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background: rgba(0, 0, 0, 0.3);
-  z-index: -1;
-}
+  <!-- Fetch Rick & Morty Characters -->
+  <script>
+    async function fetchCharacters() {
+      const res = await fetch('https://rickandmortyapi.com/api/character');
+      const data = await res.json();
+      const container = document.getElementById('characters-container');
 
-.content-center {
-  height: 150%;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  text-align: center;
-}
+      data.results.forEach(char => {
+        container.innerHTML += `
+          <div class="col-sm-6 col-md-4 col-lg-3 mb-4">
+            <div class="card bg-secondary text-white h-100 shadow-sm character-card">
+              <img src="${char.image}" class="card-img-top" alt="${char.name}">
+              <div class="card-body text-center">
+                <h5 class="card-title">${char.name}</h5>
+                <p class="mb-1"><strong>Status:</strong> ${char.status}</p>
+                <p class="mb-0"><strong>Species:</strong> ${char.species}</p>
+              </div>
+            </div>
+          </div>
+        `;
+      });
+    }
 
-/* YOHAN LEE STYLING */
-.content-center h1 {
-  font-family: 'Italianno', cursive;
-  font-size: 8rem;
-  margin-bottom: 5px;
-  color: yellow;
-  line-height: 1.1;
-}
-
-.content-center h1::after {
-  content: "";
-  display: block;
-  width: 50%;
-  height: 3px;
-  background-color: white;
-  margin: 10px auto 0 auto;
-}
-
-.content-center p {
-  font-size: 1.2rem;
-  margin-top: 5px;
-  letter-spacing: 1px;
-  text-transform: uppercase;
-}
-
-/* Responsive p for mobile */
-@media (max-width: 768px) {
-  .content-center p {
-    font-size: 1rem; /* Adjust as needed for tablets and small screens */
-  }
-}
-
-@media (max-width: 480px) {
-  .content-center h1 {
-    font-size: 5rem; /* Adjust for phones */
-  }
-}
-
-/* BUTTON */
-.btn-learn {
-  margin-top: 20px;
-  padding: 10px 20px;
-  border-radius: 20px;
-  background-color: #ffffff22;
-  color: white;
-  border: 1px solid white;
-  cursor: pointer;
-  transition: background-color 0.3s ease;
-}
-
-.btn-learn:hover {
-  background-color: #ffffff44;
-}
-
-/* EDUCATION SECTION */
-.education-section {
-  background-color: #ffffff; /* white background to match screenshot */
-  color: #081a3a;
-  padding: 6rem 0 4rem; /* space above and below */
-}
-
-.education-title {
-  font-family: 'Times New Roman', serif;
-  font-size: 2.75rem;
-  text-align: center;
-  color: #081a3a;
-  margin-bottom: 3.5rem;
-  letter-spacing: 2px;
-}
-
-.education-list {
-  width: 100%;
-  max-width: 900px; /* center column but allow shrink on small screens */
-  margin: 0 auto;
-  display: block;
-  padding: 0 1rem; /* small side padding for mobile gutters */
-}
-
-.edu-item {
-  display: grid;
-  grid-template-columns: 120px 1fr;
-  gap: 2rem;
-  align-items: center;
-  width: 100%;
-  padding: 0; /* remove internal padding so it fills container */
-}
-
-/* Mobile: stack logo above text and increase gutters */
-@media (max-width: 600px) {
-  .education-list {
-    padding: 0 1.25rem; /* slightly larger mobile padding */
-  }
-
-  .edu-item {
-    grid-template-columns: 1fr; /* stack */
-    text-align: center;
-    gap: 0.5rem;
-    padding: 1rem 0;
-  }
-
-  .edu-item-logo img {
-    width: 90px;
-    height: 90px;
-    margin: 0 auto;
-  }
-
-  .edu-degree { font-size: 1.25rem; }
-  .edu-school { font-size: 0.95rem; }
-}
-
-.edu-item-logo img {
-  width: 110px;
-  height: 110px;
-  object-fit: contain;
-  display: block;
-}
-
-.edu-item-content {
-  color: #081a3a;
-}
-
-.edu-degree {
-  font-family: 'Times New Roman', serif;
-  font-size: 1.6rem;
-  margin: 0 0 8px 0;
-  font-weight: 400;
-}
-
-.edu-school {
-  margin: 0 0 6px 0;
-  font-size: 1rem;
-  color: #081a3a;
-}
-
-.edu-years {
-  margin: 0;
-  font-size: 0.95rem;
-  color: #081a3a;
-}
-
-/* Subtle separator between entries (optional) */
-.edu-item:not(:last-child) {
-  padding-bottom: 1rem;
-  border-bottom: 1px solid rgba(8,26,58,0.06);
-}
-
-/* Responsive: stack on small screens */
-@media (max-width: 768px) {
-  .edu-item {
-    grid-template-columns: 80px 1fr;
-    gap: 1rem;
-    text-align: left;
-  }
-
-  .edu-item-logo img {
-    width: 80px;
-    height: 80px;
-  }
-
-  .education-title {
-    font-size: 2rem;
-    margin-bottom: 2rem;
-  }
-}
-
-@media (max-width: 480px) {
-  .edu-item {
-    grid-template-columns: 1fr;
-    text-align: center;
-  }
-
-  .edu-item-logo img {
-    margin: 0 auto 0.5rem auto;
-  }
-
-  .edu-degree { font-size: 1.25rem; }
-  .edu-school { font-size: 0.95rem; }
-}
+    fetchCharacters();
+  </script>
+</body>
+</html>
