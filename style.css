@@ -10,7 +10,7 @@ html {
 
 body {
   margin: 0;
-  color: white;
+  color: rgb(255, 255, 255);
   font-family: "Times New Roman", serif;
 }
 
@@ -63,12 +63,16 @@ body {
 }
 
 .content-center {
-  height: 150%;
+  position: absolute;
+  top: 50%;
+  right: 20%;
+  transform: translateY(-50%);
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
   text-align: center;
+  max-width: 45%;
 }
 
 /* YOHAN LEE STYLING */
@@ -98,6 +102,10 @@ body {
 
 /* Responsive p for mobile */
 @media (max-width: 768px) {
+  .content-center {
+    right: 5%;
+  }
+
   .content-center p {
     font-size: 1rem;
   }
@@ -106,6 +114,10 @@ body {
 @media (max-width: 480px) {
   .content-center h1 {
     font-size: 5rem;
+  }
+
+  .hero-bg {
+    object-position: -210px center;
   }
 }
 
@@ -256,6 +268,7 @@ body {
 /* Certifications Section */
 .certifications-section {
   padding: 40px 0;
+  background-color: #a6a68718;
 }
 
 .certifications-title {
