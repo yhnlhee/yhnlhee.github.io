@@ -296,6 +296,7 @@ body {
 .cert-item p {
   margin-top: 10px;
   font-size: 1rem;
+  color: black;
 }
 
 @media (max-width: 800px) {
@@ -304,8 +305,68 @@ body {
   }
 }
 
+@media (max-width: 768px) {
+  .cert-item img {
+    height: 90px;
+  }
+  
+  .cert-item p {
+    font-size: 0.9rem;
+  }
+}
+
 .education {
   border: 2px solid #ccc; 
   padding: 15px;
   margin: 10px 0;
+}
+
+.skills-section {
+  background-color: #ffffff;
+  color: #081a3a;
+  padding: 4rem 0;
+}
+
+.skills-title {
+  text-align: center;
+  font-family: 'Times New Roman', serif;
+  font-size: 2.5rem;
+  font-weight:;
+  color: #081a3a;
+  margin-bottom: 3rem;
+}
+
+.skill-item {
+  text-align: center;
+  padding: 20px;
+  height: 180px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.skill-item img {
+  width: 100px;
+  height: 100px;
+  object-fit: contain;
+  margin-bottom: 10px;
+}
+
+.skill-item p {
+  font-size: 1.1rem;
+  font-weight: 500;
+  color: #081a3a;
+  margin: 0;
+}
+
+@media (max-width: 768px) {
+  .skill-item {
+    height: 160px;
+  }
+  
+  .skill-item img {
+    width: 80px;
+    height: 80px;
+  }
 }
