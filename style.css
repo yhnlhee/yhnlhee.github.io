@@ -38,7 +38,7 @@ body {
 .hero-section {
   position: relative;
   width: 100%;
-  height: 100vh; /* full screen height */
+  height: 100vh;
   overflow: hidden;
 }
 
@@ -48,7 +48,7 @@ body {
   left: 0;
   width: 100%;
   height: 100%;
-  object-fit: cover; /* show full image while maintaining aspect ratio */
+  object-fit: cover;
   z-index: -2;
 }
 
@@ -99,19 +99,19 @@ body {
 /* Responsive p for mobile */
 @media (max-width: 768px) {
   .content-center p {
-    font-size: 1rem; /* Adjust as needed for tablets and small screens */
+    font-size: 1rem;
   }
 }
 
 @media (max-width: 480px) {
   .content-center h1 {
-    font-size: 5rem; /* Adjust for phones */
+    font-size: 5rem;
   }
 }
 
 /* BUTTON */
 .btn-learn {
-  margin-top: 20px;
+  margin-top: 0px;
   padding: 10px 20px;
   border-radius: 20px;
   background-color: #ffffff22;
@@ -127,9 +127,9 @@ body {
 
 /* EDUCATION SECTION */
 .education-section {
-  background-color: #ffffff; /* white background to match screenshot */
+  background-color: #ffffff;
   color: #081a3a;
-  padding: 6rem 0 4rem; /* space above and below */
+  padding: 6rem 0 4rem;
 }
 
 .education-title {
@@ -143,29 +143,32 @@ body {
 
 .education-list {
   width: 100%;
-  max-width: 900px; /* center column but allow shrink on small screens */
+  max-width: 900px;
   margin: 0 auto;
   display: block;
-  padding: 0 1rem; /* small side padding for mobile gutters */
+  padding: 0 1rem;
 }
 
 .edu-item {
   display: grid;
   grid-template-columns: 120px 1fr;
   gap: 2rem;
+  
   align-items: center;
   width: 100%;
-  padding: 0; /* remove internal padding so it fills container */
+  padding: 0;
 }
 
 /* Mobile: stack logo above text and increase gutters */
+.media-mobile {
+}
 @media (max-width: 600px) {
   .education-list {
-    padding: 0 1.25rem; /* slightly larger mobile padding */
+    padding: 0 1.25rem;
   }
 
   .edu-item {
-    grid-template-columns: 1fr; /* stack */
+    grid-template-columns: 1fr;
     text-align: center;
     gap: 0.5rem;
     padding: 1rem 0;
@@ -248,4 +251,61 @@ body {
 
   .edu-degree { font-size: 1.25rem; }
   .edu-school { font-size: 0.95rem; }
+}
+
+/* Certifications Section */
+.certifications-section {
+  padding: 40px 0;
+}
+
+.certifications-title {
+  text-align: center;
+  font-family: 'Times New Roman', serif;
+  margin-bottom: 40px;
+  font-size: 2.5rem;
+  font-weight: ;
+  color: rgb(0, 0, 0);
+}
+
+.cert-item {
+  text-align: center;
+  padding: 15px;
+  margin-bottom: 20px;
+}
+
+.cert-item img {
+  width: 100%;
+  height: 220px;
+  object-fit: cover;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  display: block;
+}
+
+.cert-thumb {
+  cursor: pointer;
+  transition: transform 180ms ease, box-shadow 180ms ease;
+}
+
+.cert-thumb:hover,
+.cert-item:hover .cert-thumb {
+  transform: translateY(-6px) scale(1.02);
+  box-shadow: 0 12px 24px rgba(0, 0, 0, 0.28);
+}
+
+.cert-item p {
+  margin-top: 10px;
+  font-size: 1rem;
+}
+
+@media (max-width: 800px) {
+  .cert-item img {
+    height: 220px; 
+  }
+}
+
+.education {
+  border: 2px solid #ccc; 
+  padding: 15px;
+  margin: 10px 0;
 }
