@@ -103,11 +103,18 @@ body {
 /* Responsive p for mobile */
 @media (max-width: 768px) {
   .content-center {
-    right: 5%;
+    right: 10%;
   }
 
   .content-center p {
     font-size: 0.85rem;
+  }
+
+  .btn-learn {
+    padding: 7px 18px;     
+    border-radius: 20px;
+    font-size: 0.9rem;
+    margin-top: 15px;
   }
 }
 
@@ -119,13 +126,19 @@ body {
   .hero-bg {
     object-position: -150px center;
   }
+
+  .btn-learn {
+    padding: 10px 20px;  
+    font-size: 0.70rem;
+    margin-top: 20px;
+  }
 }
 
 /* BUTTON */
 .btn-learn {
   margin-top: 0px;
-  padding: 10px 20px;
-  border-radius: 20px;
+  padding: 6px 15px;
+  border-radius: 18px;
   background-color: #ffffff22;
   color: white;
   border: 1px solid white;
